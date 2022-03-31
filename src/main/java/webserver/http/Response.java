@@ -31,7 +31,7 @@ public class Response {
         try {
             dataOutputStream.writeBytes("HTTP/1.1 302 FOUND \r\n");
             dataOutputStream.writeBytes("Location: " + url + " \r\n");
-            dataOutputStream.writeBytes("Set-Cookie: " + cookie + "; Path=/\r\n");
+            dataOutputStream.writeBytes("Set-Cookie: " + cookie + "; max-age=100; Path=/\r\n");
             dataOutputStream.writeBytes("\r\n");
         } catch (IOException e) {
             log.error(e.getMessage());
