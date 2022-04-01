@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Strings;
 
-import db.DataBase;
+import db.UserDatabase;
 import model.User;
 import util.HttpRequestUtils;
 import webserver.http.Request;
@@ -23,7 +23,7 @@ public class UserListController implements Controller {
 
     @Override
     public void process(Request request, Response response) throws IOException {
-        Collection<User> users = DataBase.findAll();
+        Collection<User> users = UserDatabase.findAll();
         byte[] body = Files.readAllBytes(new File("./webapp" + request.getUrl() + ".html").toPath());
         StringBuilder sb = new StringBuilder();
 

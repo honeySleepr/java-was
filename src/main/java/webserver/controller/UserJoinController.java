@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import db.DataBase;
+import db.UserDatabase;
 import model.User;
 import util.HttpRequestUtils;
 import webserver.http.Request;
@@ -22,7 +22,7 @@ public class UserJoinController implements Controller {
             Map<String, String> userData = HttpRequestUtils.parseQueryString(request.getRequestBody().orElseThrow());
             User user = new User(userData.get("userId"), userData.get("password"), userData.get("name"),
                 userData.get("email"));
-            DataBase.addUser(user).ifPresentOrElse(
+            UserDatabase.addUser(user).ifPresentOrElse(
                 value -> response.response302Header("/index.html"),
                 () -> response.response302Header("/user/form.html")
             );

@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import model.User;
 
-public class DataBase {
-    private static final Logger log = LoggerFactory.getLogger(DataBase.class);
+public class UserDatabase {
+    private static final Logger log = LoggerFactory.getLogger(UserDatabase.class);
     private static Map<String, User> users = new HashMap<>();
 
     public static Optional<User> addUser(User user) {
