@@ -48,7 +48,7 @@ public class UserListController implements Controller {
                     response.response200Header(newBody.length(), "/user/list.html");
                     response.responseBody(newBody.getBytes(StandardCharsets.UTF_8));
                 },
-                () -> response.response302Header("/index.html")
+                () -> response.response302Header("/index")
             );
     }
 }

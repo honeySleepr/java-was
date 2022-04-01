@@ -6,12 +6,16 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import db.ArticleDatabase;
 import model.Article;
 import webserver.http.Request;
 import webserver.http.Response;
 
 public class ArticleListController implements Controller {
+    private static final Logger log = LoggerFactory.getLogger(ArticleListController.class);
 
     @Override
     public void process(Request request, Response response) throws IOException {
@@ -25,7 +29,7 @@ public class ArticleListController implements Controller {
                 .append("<div class=\"wrap\">")
                 .append("<div class=\"main\">")
                 .append("<strong class=\"subject\">")
-                .append("<a href=\"./qna/show.html\">" + article.getContent() + "</a>")
+                .append("<a href=\"./qna/show.html\">" + article.getTitle() + "</a>")
                 .append("</strong>")
                 .append("<div class=\"auth-info\">")
                 .append("<i class=\"icon-add-comment\"></i>")
@@ -34,7 +38,7 @@ public class ArticleListController implements Controller {
                 .append("</div>")
                 .append("<div class=\"reply\" title=\"#\">")
                 .append("<i class=\"icon-reply\"></i>")
-                .append("<span class=\"point\">" + i + "</span>")
+                .append("<span class=\"point\">" + i++ + "</span>")
                 .append("</div>")
                 .append("</div>")
                 .append("</div>")

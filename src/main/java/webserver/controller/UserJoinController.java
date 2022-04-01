@@ -23,7 +23,7 @@ public class UserJoinController implements Controller {
             User user = new User(userData.get("userId"), userData.get("password"), userData.get("name"),
                 userData.get("email"));
             UserDatabase.addUser(user).ifPresentOrElse(
-                value -> response.response302Header("/index.html"),
+                value -> response.response302Header("/index"),
                 () -> response.response302Header("/user/form.html")
             );
 

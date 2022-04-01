@@ -25,7 +25,7 @@ public class UserLoginController implements Controller {
 
             User loginUser = UserDatabase.findUserById(userData.get("userId")).orElseThrow();
             if (loginUser.matchesPassword(userData.get("password"))) {
-                response.response302HeaderWithCookie("/index.html", "sessionId=" + loginUser.getUserId());
+                response.response302HeaderWithCookie("/index", "sessionId=" + loginUser.getUserId());
                 return;
             }
             response.response302Header("/user/login_failed.html");

@@ -13,8 +13,8 @@ public class UserLogoutController implements Controller {
     public void process(Request request, Response response) throws IOException {
         Optional.ofNullable(request.getRequestHeader().get("Cookie"))
             .ifPresentOrElse(
-                value -> response.response302HeaderLogout("/index.html", "sessionId=" + value),
-                () -> response.response302Header("/index.html")
+                value -> response.response302HeaderLogout("/index", "sessionId=" + value),
+                () -> response.response302Header("/index")
             );
     }
 }
