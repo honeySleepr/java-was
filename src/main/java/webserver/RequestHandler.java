@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import util.HttpRequestUtils;
 import util.HttpRequestUtils.Pair;
+import webserver.controller.ArticleListController;
 import webserver.controller.Controller;
 import webserver.controller.StaticFileController;
 import webserver.controller.UserJoinController;
@@ -29,7 +30,8 @@ public class RequestHandler extends Thread {
             new Pair("POST", "/user/create"), new UserJoinController(),
             new Pair("POST", "/user/login"), new UserLoginController(),
             new Pair("GET", "/user/logout"), new UserLogoutController(),
-            new Pair("GET", "/user/list"), new UserListController()
+            new Pair("GET", "/user/list"), new UserListController(),
+            new Pair("GET", "/index"), new ArticleListController()
         ));
     private Socket connection;
 
